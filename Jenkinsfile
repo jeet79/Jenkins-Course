@@ -8,9 +8,7 @@ pipeline {
         }
         stage("Build"){
             steps {
-                dir("Jenkins-Course"){
                     bat "npm install"
-                }
             }
         }
         stage("Test"){
