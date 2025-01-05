@@ -1,11 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage("Clean Up"){
-            steps {
-                deleteDir()
-            }
-        }
+        // stage("Clean Up"){
+        //     steps {
+        //         deleteDir()
+        //     }
+        // }
     //     stage('Checkout Code') {
     // steps {
     //     checkout scm
