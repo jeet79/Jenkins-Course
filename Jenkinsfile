@@ -6,6 +6,11 @@ pipeline {
                 deleteDir()
             }
         }
+        stage('Checkout Code') {
+    steps {
+        checkout scm
+    }
+}
         stage("Build"){
             steps {
                     bat "npm install"
