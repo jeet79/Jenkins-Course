@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage("Clean Up"){
+            steps {
+                deleteDir()
+            }
+        }
+        stage("Clone repo"){
+            steps {
+                bat 'git clone https://github.com/jeet79/Jenkins-Course.git'
+            }
+        }
+        stage("Build"){
+            steps {
+                dir("Jenkins-Course"){
+                    bat 'npm install'
+                    sleep(10)
+                }
+            }
+        }
+        stage("Build remote"){
+            steps {
+              build job: "Bool Pipeline", parameters: [[$class: 'BooleanParameterValue', name: 'MyBoolean', value: true]]
+            }
+        }
+    }
+}

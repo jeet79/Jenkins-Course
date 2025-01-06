@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    stages {
+        stage("Demo"){
+            steps {
+                myFun("Hello")
+            }
+        }
+    }
+}
+def myFun(String myText) {
+    def myNum = 10
+    echo "My text is: ${myText} and Num : ${myNum}"
+}

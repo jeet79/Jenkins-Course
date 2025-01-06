@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    parameters {
+        string(defaultValue: '', description: 'Custome deployment Name', name: 'customDep')
+        choice(choices: ['TEST','DEV','PROD'], description: 'Which env', name: 'deployEnv')
+        booleanParam(defaultValue: false, description: 'Confirm?', name: 'confirm')
+    }
+    stages {
+        stage('Demo'){
+            steps {
+                echo "Dep is set to ${params.customDep} \n"
+                echo "Env is set to ${params.deployEnv} \n"
+                echo "Cinfirm is set to ${params.confirm} \n"
+            }
+        }
+    }
+}
